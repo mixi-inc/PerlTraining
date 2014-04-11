@@ -1,8 +1,45 @@
-# NAME
+package Math::ConsumptionTax::JP;
+use 5.008005;
+use strict;
+use warnings;
+
+our $VERSION = "0.01";
+
+sub calculate{
+    my ( $price ) = @_;
+
+    return if $price !~ /\A\d+\z/;
+
+    return {
+        0  => 100,
+        3  => 103,
+        5  => 105,
+        8  => 108,
+        10 => 110,
+    };
+}
+
+sub included_calculate{
+    return {
+        0  => 100,
+        3  => 103,
+        5  => 105,
+        8  => 108,
+        10 => 110,
+    };
+}
+
+1;
+
+__END__
+
+=encoding utf-8
+
+=head1 NAME
 
 Math::ConsumptionTax::JP - Calculate Japanese Consumption Tax
 
-# SYNOPSIS
+=head1 SYNOPSIS
 
     use Math::ConsumptionTax::JP;
 
@@ -24,19 +61,21 @@ Math::ConsumptionTax::JP - Calculate Japanese Consumption Tax
     #       10 => 110
     #    }
 
-# DESCRIPTION
+=head1 DESCRIPTION
 
 Math::ConsumptionTax::JP provide price value included (all times) consumption tax.
 
 
-
-# LICENSE
+=head1 LICENSE
 
 Copyright (C) masartz.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
 
-# AUTHOR
+=head1 AUTHOR
 
-masartz <masartz@gmail.com>
+masartz E<lt>masartz@gmail.comE<gt>
+
+=cut
+
