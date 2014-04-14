@@ -1,0 +1,324 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    <link href="css/impress.css" rel="stylesheet" />
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+</head>
+<body>
+<div id="impress" class="impress-not-supported">
+    <div class="fallback-message">
+        <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+        <p>For the best experience please use the latest <b>Chrome</b> or <b>Safari</b> browser. Firefox 10 (to be released soon) will also handle it.</p>
+    </div>
+
+<div id="title" class="step" data-y="0" data-x="0">
+<h1>Perl 研修</h1>
+
+</div>
+<div class="step" data-y="0" data-x="1200">
+<h2>Agenda</h2>
+
+<ul>
+<li>はじめに</li>
+<li>Perl について</li>
+<li>package / モジュール</li>
+<li>Perl の代表的モジュール</li>
+<li>Perl の環境系のしくみ</li>
+</ul>
+
+</div>
+<div class="step" data-y="0" data-x="2400">
+<h2>はじめに</h2>
+
+<ul>
+<li>Perl, プログラミングの基礎知識がある前提で話します</li>
+<li>時間もそれほど無いので，細かい説明はできませんが，質問があればどうぞ</li>
+</ul>
+
+</div>
+<div class="step" data-y="0" data-x="3600">
+<h2>Perl について</h2>
+
+<ul>
+<li>最新版は perl 5.18.2</li>
+<li>最近は毎年マイナバージョンをリリースしてる<br />(5.20は，2014-05-20 予定)</li>
+<li>Perl6 は別言語として扱われています</li>
+</ul>
+
+</div>
+<div class="step" data-y="0" data-x="4800">
+<h2>package</h2>
+
+</div>
+<div id="package" class="step" data-y="800" data-x="0">
+<h2>package とは</h2>
+
+<!-- id="package" -->
+
+<ul>
+<li>Perl における名前空間です</li>
+<li>サブルーチンや変数のグループを作るのに使います</li>
+</ul>
+
+</div>
+<div class="step" data-y="800" data-x="1200">
+<h2>package の宣言</h2>
+
+<ul>
+<li>下記のように宣言します</li>
+<li><p>package の区切りは::(ダブルコロン)です</p>
+
+<pre><code>package Some::Module;
+sub hello { 'world' }
+</code></pre></li>
+</ul>
+
+</div>
+<div class="step" data-y="800" data-x="2400">
+<h2>サブルーチンの呼び出し</h2>
+
+<ul>
+<li><p>Package名::サブルーチン名で呼び出します</p>
+
+<pre><code>Some::Module::hello();# 'world'
+</code></pre></li>
+</ul>
+
+</div>
+<div class="step" data-y="800" data-x="3600">
+<h2>モジュール</h2>
+
+</div>
+<div id="module" class="step" data-y="800" data-x="4800">
+<h2>モジュールとは</h2>
+
+<!-- id="module" -->
+
+<ul>
+<li>package の中身を定義しているファイル</li>
+<li>package 名に対応したパス・ファイル名で保存します</li>
+<li><p>ファイル最後の評価値は真であることが必要です</p>
+
+<pre><code>package Some::Module; # ➡ Some/Module.pm
+sub hallo { 'world' }
+1;
+</code></pre></li>
+</ul>
+
+</div>
+<div class="step" data-y="1600" data-x="0">
+<h2>モジュールの呼び出し</h2>
+
+<ul>
+<li>use を使います</li>
+<li><p>名前からパス・ファイル名を判別して，ファイルが読み込まれます</p>
+
+<pre><code>use Some::Module;
+</code></pre></li>
+</ul>
+
+</div>
+<div class="step" data-y="1600" data-x="1200">
+<h2>Perl でもオブジェクト指向</h2>
+
+<pre><code>    package Some::Module;
+    sub new {
+        my $class = shift;
+        bless +{}, $class;
+    }
+    sub hello {
+        my $self = shift;
+        return 'perl oo world';
+    }
+    1;
+
+    my $module = Some::Module-&gt;new;
+    $module-&gt;hello; # 'perl oo world'
+</code></pre>
+
+</div>
+<div class="step" data-y="1600" data-x="2400">
+<h2>Perl の代表的モジュール</h2>
+
+</div>
+<div class="step" data-y="1600" data-x="3600">
+<h2>CPAN</h2>
+
+<ul>
+<li>ほしいものは大抵CPANにあります</li>
+<li>他の言語で組み込みで用意されているものも，<br />モジュールとして存在することが多い</li>
+<li><a href="https://metacpan.org/">https://metacpan.org/</a> で探せます</li>
+</ul>
+
+</div>
+<div class="step" data-y="1600" data-x="4800">
+<h2><a href="https://metacpan.org/pod/List::Util">List::Util</a>, <a href="https://metacpan.org/pod/List::MoreUtils">List::MoreUtils</a></h2>
+
+<ul>
+<li>List 系のユーティリティ</li>
+<li>組み込み関数としては，map や grep などしかない</li>
+<li>ほしいものはこのあたりにあるかも</li>
+</ul>
+
+</div>
+<div class="step" data-y="2400" data-x="0">
+<h2><a href="https://metacpan.org/pod/Encode">Encode</a></h2>
+
+<ul>
+<li>文字コードを扱うモジュール</li>
+</ul>
+
+</div>
+<div class="step" data-y="2400" data-x="1200">
+<h2><a href="https://metacpan.org/pod/Data::Util">Data::Util</a></h2>
+
+<ul>
+<li>データとデータ型のためのユーティリティ集</li>
+<li>チェック関数や検証関数など</li>
+</ul>
+
+</div>
+<div class="step" data-y="2400" data-x="2400">
+<h2><a href="https://metacpan.org/pod/Class::Accessor">Class::Accessor</a></h2>
+
+<ul>
+<li>アクセサ
+<ul>
+<li>組み込みでは存在しません</li>
+</ul></li>
+<li><a href="https://metacpan.org/pod/Class::Accessor::Fast">Class::Accessor::Fast</a>, <a href="https://metacpan.org/pod/Class::Accessor::Lite">Class::Accessor::Lite</a> など他にもいろいろ</li>
+</ul>
+
+</div>
+<div class="step" data-y="2400" data-x="3600">
+<h2><a href="https://metacpan.org/pod/Moose">Moose</a>/<a href="https://metacpan.org/pod/Mouse">Mouse</a>/<a href="https://metacpan.org/pod/Moo">Moo</a></h2>
+
+<ul>
+<li>Perl のモダンなオブジェクト機構
+<ul>
+<li>オブジェクトの機構ですら Yet Another なものが存在</li>
+</ul></li>
+<li>Perl に型システムも提供します</li>
+<li>Moose の軽量版が，Mouse や Moo です</li>
+</ul>
+
+</div>
+<div class="step" data-y="2400" data-x="4800">
+<h2><a href="https://metacpan.org/pod/DBI">DBI</a></h2>
+
+<ul>
+<li>DB のインタフェイス</li>
+<li>Perl でDBを扱うときは，大抵このモジュールか，このモジュールを利用したモジュールで扱う</li>
+</ul>
+
+</div>
+<div class="step" data-y="3200" data-x="0">
+<h2><a href="https://metacpan.org/pod/Cache::Memcached::Fast">Cache::Memcached::Fast</a></h2>
+
+<ul>
+<li>Memcached のインタフェイス</li>
+</ul>
+
+</div>
+<div class="step" data-y="3200" data-x="1200">
+<h2>Perl の環境系のしくみ</h2>
+
+</div>
+<div class="step" data-y="3200" data-x="2400">
+<h2>Perl の環境系のしくみ</h2>
+
+<ul>
+<li>他の言語にあるものは，わりとそろってます
+<ul>
+<li>CPAN/cpanm ➡ gem, pip</li>
+<li>PSGI/Plack ➡ Rack, WSGI</li>
+<li>Carton ➡ bundler, pip freeze</li>
+<li>plenv, perlbrew ➡ rbenv, RVM, virtualenv, pythonz</li>
+<li>Minilla ➡ bundle gem</li>
+</ul></li>
+</ul>
+
+</div>
+<div class="step" data-y="3200" data-x="3600">
+<h2>CPAN/cpanm</h2>
+
+<ul>
+<li>モジュールの管理</li>
+<li>CPAN: モジュールやソフトウェアを集めたアーカイブサイト</li>
+<li><a href="https://metacpan.org/pod/App::cpanminus">cpanm</a>: CPANからモジュールなどをインストールするためのコマンドラインツール
+<ul>
+<li>github からもインストール可能</li>
+</ul></li>
+</ul>
+
+</div>
+<div class="step" data-y="3200" data-x="4800">
+<h2><a href="http://plackperl.org/">PSGI/Plack</a></h2>
+
+<ul>
+<li>PSGI: WebフレームワークとWebサーバをつなぐ共通インタフェース</li>
+<li>Plack: PSGIユーティリティとリファレンス実装としてのPSGIサーバなど</li>
+</ul>
+
+</div>
+<div class="step" data-y="4000" data-x="0">
+<h2><a href="https://metacpan.org/pod/Carton">Carton</a></h2>
+
+<ul>
+<li>アプリケーションにおけるPerlモジュールの依存関係を管理するコマンドラインツール</li>
+<li><em>Carton - Perl module dependency manager (aka Bundler for Perl)</em></li>
+</ul>
+
+</div>
+<div class="step" data-y="4000" data-x="1200">
+<h2><a href="https://github.com/tokuhirom/plenv">plenv</a>, <a href="http://perlbrew.pl/">perlbrew</a></h2>
+
+<ul>
+<li>Perl5 のインストール管理ツール</li>
+<li>バージョンと環境を切り替えて使える</li>
+</ul>
+
+</div>
+<div class="step" data-y="4000" data-x="2400">
+<h2><a href="https://metacpan.org/pod/Minilla">Minilla</a></h2>
+
+<ul>
+<li>CPAN モジュールのオーサリングツール</li>
+<li>他には Module::Starter, Dist::Zilla, Dist::Milla などもあります</li>
+</ul>
+
+</div>
+
+
+    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
+    </div>
+
+</div>
+
+<div class="hint">
+    <p>Use a spacebar or arrow keys to navigate</p>
+</div>
+<script>
+if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+}
+</script>
+<script src="js/impress.js"></script>
+<script>
+if ( !window.location.search.match(/print/) ) {
+    impress().init();
+}
+</script>
+<script>
+var codeTags = document.getElementsByTagName("code");
+for (var i = 0; i < codeTags.length; i++) {
+    codeTags[i].className = "prettyprint";
+}
+</script>
+
+</body>
+</html>
+

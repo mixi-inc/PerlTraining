@@ -1,0 +1,6 @@
+carton.lock
+cpanfile.snapshot
+
+local/
+markdown2impress/
+
