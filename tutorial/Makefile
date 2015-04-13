@@ -1,5 +1,5 @@
 all:
-	./markdown2impress/bin/markdown2impress.pl README.md
+	carton exec ./markdown2impress/bin/markdown2impress.pl README.md
 	open 'http://localhost:5000/'
 install:
 	carton install
@@ -7,5 +7,5 @@ install:
 clean:
 	git clean -fdx
 startserver:
-	plackup -R index.html
+	carton exec plackup -R index.html
 

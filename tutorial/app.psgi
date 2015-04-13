@@ -1,6 +1,5 @@
 #!/usr/bin/env perl
 
-use 5.016;
 use common::sense;
 
 use Plack::Builder;
