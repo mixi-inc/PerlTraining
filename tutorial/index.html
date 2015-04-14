@@ -14,11 +14,11 @@
         <p>For the best experience please use the latest <b>Chrome</b> or <b>Safari</b> browser. Firefox 10 (to be released soon) will also handle it.</p>
     </div>
 
-<div id="title" class="step" data-y="0" data-x="0">
+<div data-y="0" id="title" class="step" data-x="0">
 <h1>Perl 研修</h1>
 
 </div>
-<div class="step" data-y="0" data-x="1200">
+<div data-x="1200" data-y="0" class="step">
 <h2>Agenda</h2>
 
 <ul>
@@ -30,30 +30,40 @@
 </ul>
 
 </div>
-<div class="step" data-y="0" data-x="2400">
+<div data-x="2400" data-y="0" class="step">
 <h2>はじめに</h2>
 
 <ul>
-<li>Perl, プログラミングの基礎知識がある前提で話します</li>
-<li>時間もそれほど無いので，細かい説明はできませんが，質問があればどうぞ</li>
+<li>プログラミングの基礎知識がある前提で話します</li>
+<li>時間もそれほど無いので，細かい説明はできませんが，質問があればいつでもどうぞ</li>
 </ul>
 
 </div>
 <div class="step" data-y="0" data-x="3600">
-<h2>Perl について</h2>
+<h2>実習の進め方</h2>
 
 <ul>
-<li>最新版は perl 5.18.2</li>
-<li>最近は毎年マイナバージョンをリリースしてる<br />(5.20は，2014-05-20 予定)</li>
-<li>Perl6 は別言語として扱われています</li>
+<li>Perl の講習に課題で手を動かしながら進めます</li>
+<li>課題は PerlTraning のレポジトリにあるのでそれをやっていきます</li>
+<li>practice ディレクトリ以下に課題を用意してあります</li>
 </ul>
 
 </div>
-<div class="step" data-y="0" data-x="4800">
+<div data-x="4800" data-y="0" class="step">
+<h2>Perl について</h2>
+
+<ul>
+<li>最新版は perl 5.20.2</li>
+<li>最近は毎年マイナバージョンをリリースしてる<br />(今年は5.22がでます)</li>
+<li>Perl6 は Perl5 の姉妹言語(別の言語)</li>
+</ul>
+
+</div>
+<div data-x="0" data-y="800" class="step">
 <h2>package</h2>
 
 </div>
-<div id="package" class="step" data-y="800" data-x="0">
+<div data-x="1200" class="step" id="package" data-y="800">
 <h2>package とは</h2>
 
 <!-- id="package" -->
@@ -61,10 +71,11 @@
 <ul>
 <li>Perl における名前空間です</li>
 <li>サブルーチンや変数のグループを作るのに使います</li>
+<li>サブルーチンや変数などは必ずどこかの名前空間に紐付きます</li>
 </ul>
 
 </div>
-<div class="step" data-y="800" data-x="1200">
+<div data-x="2400" class="step" data-y="800">
 <h2>package の宣言</h2>
 
 <ul>
@@ -72,27 +83,15 @@
 <li><p>package の区切りは::(ダブルコロン)です</p>
 
 <pre><code>package Some::Module;
-sub hello { 'world' }
 </code></pre></li>
 </ul>
 
 </div>
-<div class="step" data-y="800" data-x="2400">
-<h2>サブルーチンの呼び出し</h2>
-
-<ul>
-<li><p>Package名::サブルーチン名で呼び出します</p>
-
-<pre><code>Some::Module::hello();# 'world'
-</code></pre></li>
-</ul>
-
-</div>
-<div class="step" data-y="800" data-x="3600">
+<div data-x="3600" class="step" data-y="800">
 <h2>モジュール</h2>
 
 </div>
-<div id="module" class="step" data-y="800" data-x="4800">
+<div data-x="4800" class="step" id="module" data-y="800">
 <h2>モジュールとは</h2>
 
 <!-- id="module" -->
@@ -103,7 +102,8 @@ sub hello { 'world' }
 <li><p>ファイル最後の評価値は真であることが必要です</p>
 
 <pre><code>package Some::Module; # ➡ Some/Module.pm
-sub hallo { 'world' }
+use strict;
+use warnings;
 1;
 </code></pre></li>
 </ul>
@@ -121,30 +121,239 @@ sub hallo { 'world' }
 </ul>
 
 </div>
-<div class="step" data-y="1600" data-x="1200">
-<h2>Perl でもオブジェクト指向</h2>
+<div data-x="1200" data-y="1600" class="step">
+<h2>課題1</h2>
 
-<pre><code>    package Some::Module;
-    sub new {
-        my $class = shift;
-        bless +{}, $class;
-    }
-    sub hello {
-        my $self = shift;
-        return 'perl oo world';
-    }
-    1;
-
-    my $module = Some::Module-&gt;new;
-    $module-&gt;hello; # 'perl oo world'
-</code></pre>
+<ul>
+<li>moduleの作成</li>
+</ul>
 
 </div>
-<div class="step" data-y="1600" data-x="2400">
+<div data-y="1600" class="step" data-x="2400">
+<h2>その前に</h2>
+
+</div>
+<div data-x="3600" class="step" data-y="1600">
+<h2>課題レポジトリ clone</h2>
+
+<ul>
+<li>https://github.com/mixi-inc/PerlTraining</li>
+<li>git clone してください</li>
+</ul>
+
+</div>
+<div data-x="4800" data-y="1600" class="step">
+<h2>課題のディレクトリ構造</h2>
+
+<ul>
+<li>lib ➡ モジュール</li>
+<li>t ➡ テスト</li>
+</ul>
+
+</div>
+<div class="step" data-y="2400" data-x="0">
+<h2>課題の動作確認</h2>
+
+<ul>
+<li>テストが書かれているので，すべて通れば正答です</li>
+<li><p>prove コマンドを使ってテストを実行します</p>
+
+<pre><code>$ cd practice/01_module
+$ prove -lv t/01_basic.t # テストファイル単体
+$ prove -lv t/           # ディレクトリ以下まとめてテスト実行
+</code></pre></li>
+</ul>
+
+</div>
+<div class="step" data-y="2400" data-x="1200">
+<h2>課題1 やってみましょう</h2>
+
+<ul>
+<li>practice/01_module です</li>
+<li>質問はいつでもどうぞ</li>
+</ul>
+
+</div>
+<div class="step" data-y="2400" data-x="2400">
+<h2>モジュールの定義</h2>
+
+</div>
+<div data-y="2400" class="step" data-x="3600">
+<h2>サブルーチンの定義</h2>
+
+<ul>
+<li><p>通常の関数と同じく <code>sub</code> で定義します</p>
+
+<pre><code>package Some::Module;
+sub hello{ 'Hello, perl world' }
+1;
+</code></pre></li>
+</ul>
+
+</div>
+<div data-x="4800" data-y="2400" class="step">
+<h2>サブルーチンの呼び出し</h2>
+
+<ul>
+<li>Package名::サブルーチン名で呼び出します</li>
+<li><p>クラスメソッドです</p>
+
+<pre><code>Some::Module::hello();
+</code></pre></li>
+</ul>
+
+</div>
+<div class="step" data-y="3200" data-x="0">
+<h2>Perl でオブジェクト指向</h2>
+
+<ul>
+<li>Perl でもオブジェクト指向できます</li>
+</ul>
+
+</div>
+<div data-x="1200" data-y="3200" class="step">
+<h2>Perlのオブジェクト指向</h2>
+
+</div>
+<div data-x="2400" data-y="3200" class="step">
+<h2>メソッドの定義</h2>
+
+<ul>
+<li>メソッドも関数と同じように定義する</li>
+<li>ただし第1引数にオブジェクトを受け取る</li>
+<li><p><code>$self</code> で受け取るのが慣習</p>
+
+<pre><code>sub hello_oo {
+    my $self = shift;
+    return 'Perl oo world';
+}
+</code></pre></li>
+</ul>
+
+</div>
+<div data-x="3600" class="step" data-y="3200">
+<h2>メソッドの呼び出し</h2>
+
+<ul>
+<li><p>オブジェクトに対してアロー演算子(->)を使って呼び出す</p>
+
+<pre><code>use Some::Module;
+my $module = Some::Module-&gt;new;
+$module-&gt;hello_oo; # 'Perl oo world'
+</code></pre></li>
+</ul>
+
+</div>
+<div data-x="4800" data-y="3200" class="step">
+<h2>オブジェクトは勝手に生成されるの?</h2>
+
+<ul>
+<li>ですよね</li>
+</ul>
+
+</div>
+<div data-y="4000" class="step" data-x="0">
+<h2>オブジェクトの生成</h2>
+
+<ul>
+<li><code>bless</code> でリファレンスにpackage名を結びつけてオブジェクトにします</li>
+<li>自分でコンストラクタを作ります</li>
+</ul>
+
+</div>
+<div data-y="4000" class="step" data-x="1200">
+<h2>コンストラクタの定義</h2>
+
+<ul>
+<li>コンストラクタの名前は決まってません</li>
+<li><p>Perlの慣習では <code>new</code> を使う</p>
+
+<pre><code>package Some::Module;
+use strict;
+use warnings;
+sub new {
+    my $class = shift;
+    bless +{}, $class;
+}
+1;
+</code></pre></li>
+</ul>
+
+</div>
+<div class="step" data-y="4000" data-x="2400">
+<h2>コンストラクタの定義</h2>
+
+<ul>
+<li><code>$class</code> にはmoduleの名前が入っている</li>
+<li><code>bless</code> でリファレンスをpackage名と結びつけることでオブジェクトになる</li>
+<li><p>ここでは空のハッシュリファレンスをオブジェクト化して返しています</p>
+
+<pre><code>sub new {
+    my $class = shift;
+    bless +{}, $class;
+}
+</code></pre></li>
+</ul>
+
+</div>
+<div data-x="3600" class="step" data-y="4000">
+<h2>コンストラクタの呼び出し</h2>
+
+<ul>
+<li>アロー演算子(->)を使って呼び出す</li>
+<li><p>メソッドと同じです</p>
+
+<pre><code>use Some::Module;
+my $module = Some::Module-&gt;new;
+</code></pre></li>
+</ul>
+
+</div>
+<div class="step" data-y="4000" data-x="4800">
+<h2>アロー演算子って何なの?</h2>
+
+<ul>
+<li>ハッシュリファレンスなどのメンバへのアクセス</li>
+<li><p>メソッド呼び出し時のシュガーシンタックス</p>
+
+<ul>
+<li><p>だから第1引数にクラス名やオブジェクトを受け取る</p>
+
+<p>$hash_ref->{name};
+my $module = new 'Some::Module';# Some::Module->new
+hello_oo $module; # $module->hello_oo</p></li>
+</ul></li>
+</ul>
+
+</div>
+<div class="step" data-y="4800" data-x="0">
+<h2>課題2, 3 やってみましょう</h2>
+
+<ul>
+<li>practice/02_class_method, practice/03_object です</li>
+<li>質問はいつでもどうぞ</li>
+</ul>
+
+</div>
+<div data-x="1200" data-y="4800" class="step">
+<h2>課題2テスト内容参考</h2>
+
+<ul>
+<li>今度の課題はテストの内容見ないと回答できないです</li>
+<li>is ➡ 一致していれば ok</li>
+<li>isa_ok ➡ そのクラスのインスタンスならば ok</li>
+</ul>
+
+</div>
+<div class="step" data-y="4800" data-x="2400">
+<h2>✂✂✂✂✂✂✂✂✂✂✂✂✂✂ （ここまで書いた</h2>
+
+</div>
+<div data-y="4800" class="step" data-x="3600">
 <h2>Perl の代表的モジュール</h2>
 
 </div>
-<div class="step" data-y="1600" data-x="3600">
+<div class="step" data-y="4800" data-x="4800">
 <h2>CPAN</h2>
 
 <ul>
@@ -154,7 +363,7 @@ sub hallo { 'world' }
 </ul>
 
 </div>
-<div class="step" data-y="1600" data-x="4800">
+<div data-x="0" data-y="5600" class="step">
 <h2><a href="https://metacpan.org/pod/List::Util">List::Util</a>, <a href="https://metacpan.org/pod/List::MoreUtils">List::MoreUtils</a></h2>
 
 <ul>
@@ -164,7 +373,7 @@ sub hallo { 'world' }
 </ul>
 
 </div>
-<div class="step" data-y="2400" data-x="0">
+<div data-y="5600" class="step" data-x="1200">
 <h2><a href="https://metacpan.org/pod/Encode">Encode</a></h2>
 
 <ul>
@@ -172,7 +381,7 @@ sub hallo { 'world' }
 </ul>
 
 </div>
-<div class="step" data-y="2400" data-x="1200">
+<div data-y="5600" class="step" data-x="2400">
 <h2><a href="https://metacpan.org/pod/Data::Util">Data::Util</a></h2>
 
 <ul>
@@ -181,19 +390,19 @@ sub hallo { 'world' }
 </ul>
 
 </div>
-<div class="step" data-y="2400" data-x="2400">
+<div data-x="3600" data-y="5600" class="step">
 <h2><a href="https://metacpan.org/pod/Class::Accessor">Class::Accessor</a></h2>
 
 <ul>
 <li>アクセサ
 <ul>
-<li>組み込みでは存在しません</li>
+<li>言語組み込みでは存在しません</li>
 </ul></li>
 <li><a href="https://metacpan.org/pod/Class::Accessor::Fast">Class::Accessor::Fast</a>, <a href="https://metacpan.org/pod/Class::Accessor::Lite">Class::Accessor::Lite</a> など他にもいろいろ</li>
 </ul>
 
 </div>
-<div class="step" data-y="2400" data-x="3600">
+<div class="step" data-y="5600" data-x="4800">
 <h2><a href="https://metacpan.org/pod/Moose">Moose</a>/<a href="https://metacpan.org/pod/Mouse">Mouse</a>/<a href="https://metacpan.org/pod/Moo">Moo</a></h2>
 
 <ul>
@@ -206,7 +415,7 @@ sub hallo { 'world' }
 </ul>
 
 </div>
-<div class="step" data-y="2400" data-x="4800">
+<div data-x="0" class="step" data-y="6400">
 <h2><a href="https://metacpan.org/pod/DBI">DBI</a></h2>
 
 <ul>
@@ -215,7 +424,7 @@ sub hallo { 'world' }
 </ul>
 
 </div>
-<div class="step" data-y="3200" data-x="0">
+<div data-x="1200" class="step" data-y="6400">
 <h2><a href="https://metacpan.org/pod/Cache::Memcached::Fast">Cache::Memcached::Fast</a></h2>
 
 <ul>
@@ -223,11 +432,11 @@ sub hallo { 'world' }
 </ul>
 
 </div>
-<div class="step" data-y="3200" data-x="1200">
+<div class="step" data-y="6400" data-x="2400">
 <h2>Perl の環境系のしくみ</h2>
 
 </div>
-<div class="step" data-y="3200" data-x="2400">
+<div data-x="3600" data-y="6400" class="step">
 <h2>Perl の環境系のしくみ</h2>
 
 <ul>
@@ -242,7 +451,7 @@ sub hallo { 'world' }
 </ul>
 
 </div>
-<div class="step" data-y="3200" data-x="3600">
+<div class="step" data-y="6400" data-x="4800">
 <h2>CPAN/cpanm</h2>
 
 <ul>
@@ -255,7 +464,7 @@ sub hallo { 'world' }
 </ul>
 
 </div>
-<div class="step" data-y="3200" data-x="4800">
+<div class="step" data-y="7200" data-x="0">
 <h2><a href="http://plackperl.org/">PSGI/Plack</a></h2>
 
 <ul>
@@ -264,7 +473,7 @@ sub hallo { 'world' }
 </ul>
 
 </div>
-<div class="step" data-y="4000" data-x="0">
+<div data-x="1200" data-y="7200" class="step">
 <h2><a href="https://metacpan.org/pod/Carton">Carton</a></h2>
 
 <ul>
@@ -273,7 +482,7 @@ sub hallo { 'world' }
 </ul>
 
 </div>
-<div class="step" data-y="4000" data-x="1200">
+<div data-y="7200" class="step" data-x="2400">
 <h2><a href="https://github.com/tokuhirom/plenv">plenv</a>, <a href="http://perlbrew.pl/">perlbrew</a></h2>
 
 <ul>
@@ -282,7 +491,7 @@ sub hallo { 'world' }
 </ul>
 
 </div>
-<div class="step" data-y="4000" data-x="2400">
+<div data-y="7200" class="step" data-x="3600">
 <h2><a href="https://metacpan.org/pod/Minilla">Minilla</a></h2>
 
 <ul>
