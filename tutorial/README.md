@@ -24,14 +24,14 @@ Agenda
 * practice ディレクトリ以下に課題を用意してあります
 
 Perl について
-----
+====
 
 * 最新版は perl 5.20.2
 * 最近は毎年マイナバージョンをリリースしてる<br />(今年は5.22がでます)
 * Perl6 は Perl5 の姉妹言語(別の言語)
 
 package
-----
+====
 
 package とは
 ----
@@ -129,6 +129,18 @@ package の宣言
 
         Some::Module::hello();
 
+課題2
+----
+
+* practice/02_class_method
+* 質問はいつでもどうぞ
+
+課題2 テスト内容参考
+----
+
+* 今度の課題はテストの内容見ないと回答できないです
+* is($got, $expected, $test_name) ➡ 一致していれば ok
+
 Perl でオブジェクト指向
 ----
 
@@ -208,26 +220,27 @@ Perlのオブジェクト指向
 アロー演算子って何なの?
 ----
 
-* ハッシュリファレンスなどのメンバへのアクセス
+* ハッシュリファレンスなどの要素へのアクセス
 * メソッド呼び出し時のシュガーシンタックス
     * だから第1引数にクラス名やオブジェクトを受け取る
 
         $hash_ref->{name};
+        $array_ref->[0];
         my $module = new 'Some::Module';# Some::Module->new
         hello_oo $module; # $module->hello_oo
 
-課題2, 3 やってみましょう
+課題3
 ----
 
-* practice/02_class_method, practice/03_object です
+* practice/03_object です
 * 質問はいつでもどうぞ
 
-課題2テスト内容参考
+課題3 テスト内容参考
 ----
 
-* 今度の課題はテストの内容見ないと回答できないです
-* is ➡ 一致していれば ok
-* isa_ok ➡ そのクラスのインスタンスならば ok
+* prove -lv t
+* 今度の課題はテストの内容見て回答してください
+* isa_ok($object, $class) ➡ そのクラスのインスタンスならば ok
 
 ✂✂✂✂✂✂✂✂✂✂✂✂✂✂ （ここまで書いた
 ----
