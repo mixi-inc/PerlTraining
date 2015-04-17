@@ -226,6 +226,7 @@ Perlのオブジェクト指向
 
         $hash_ref->{name};
         $array_ref->[0];
+        $sub_ref->($params);
         my $module = new 'Some::Module';# Some::Module->new
         hello_oo $module; # $module->hello_oo
 
@@ -344,5 +345,173 @@ CPAN/cpanm
 * CPAN モジュールのオーサリングツール
 * 他には Module::Starter, Dist::Zilla, Dist::Milla などもあります
 
-PSGI/Plack
+PSGIアプリ
 ====
+
+* 説明した環境系の仕組みを使ってWebアプリ作成してみます
+
+cpanm のインストール
+----
+
+* モジュールの管理ツール
+
+    # plenv 使っている場合
+    $ plenv install-cpanm
+    # 使ってない場合
+    $ curl -L https://cpanmin.us | perl - App::cpanminus
+    
+carton のインストール
+----
+
+* アプリケーションの依存モジュール管理ツール
+
+    $ cpanm Carton
+
+minilla のインストール
+----
+
+* モジュールオーサリングツール
+
+    $ cpanm Minilla
+    # plenv を使っている場合はrehashする必要があるかも
+    $ plenv rehash
+
+モジュールのひな形作成
+----
+
+    $ cd practice
+    $ minil new MyPSGIApp
+    $ cd MyPSGIApp
+
+* 中身見てみましょう
+* CPAN形式と呼ばれるモジュールのファイル構成です
+
+cpanfile の記述
+----
+
+* すでに存在している `cpanfile` に追記します
+* psgi アプリを作るのに必要なモジュールを記述
+
+        requires 'Plack';
+        requires 'Plack::Builder';
+
+carton の実行
+----
+
+        $ carton install
+
+app.psgi ファイルの作成
+----
+
+* `app.psgi` はPlackサーバの標準のpsgiファイル
+* もっとも単純なアプリを作ってみます
+
+app.psgi ファイルの作成
+----
+
+        use strict;
+        use warnings;
+        
+        sub {
+            [
+                '200',
+                [ 'Content-Type' => 'text/plain' ],
+                ['Hello, Plack/PSGI world!']
+            ]
+        };
+
+plackサーバの起動
+----
+
+* -r はコードに変更があったときに自動で再起動する機能です
+* -p はport指定です（デフォルトは5000）
+    * port5000を使ってなければ指定の必要は無いです
+
+        $ carton exec plackup -r
+        # $ carton exec plackup -r -p 5001
+
+起動したらアクセスしてみて下さい
+----
+
+        $ open http://localhost:5000/
+
+* もっとも単純なPSGIアプリが動きました!
+
+PSGI について簡単な解説
+----
+
+* PSGI = サーバとアプリのやり取りの取り決め
+* アプリはレスポンスとして http response, header, body をarrayリファレンスで返す
+* plackup は，レスポンスを返すサブルーチンを受け取って動作する
+
+
+plack middleware
+----
+
+* アプリを包んで，リクエストやレスポンスに変更を加えたりする
+
+![onion](http://pylons-webframework.readthedocs.org/en/latest/_images/pylons_as_onion.png)
+
+
+plack middleware を使ってみる
+----
+
+cpanfile に追記
+----
+
+        require 'Plack::Builder'
+        require 'Plack::Middleware::Debug'
+
+* 追記したら carton install してください
+
+app.psgi を編集
+----
+
+        use strict;
+        use warnings;
+        
+        use Plack::Builder;
+        
+        builder {
+            enable 'Debug';
+            sub {
+                [
+                    '200',
+                    [ 'Content-Type' => 'text/plain' ],
+                    ['Hello, Plack/PSGI world!']
+                ]
+            }
+        };
+
+開いてみる
+----
+
+* 保存したら再起動するはずなのでブラウザリロードしてみて下さい
+* 右側にデバッグコンソールが表示されたはずです
+
+実際にアプリを開発する
+----
+
+* そのときはWAFを使うことが多いです
+* Mojolicious とか Amon2 とか
+
+以上講義は終わりです
+----
+
+* 質問とかあれば
+
+extra 演習
+====
+
+* 時間があれば
+* テストが通るように修正して下さい
+    * practice/p5-Math-ConsumptionTax-JP
+    * practice/p5-List-Group
+    * practice/p5-String-Inflector
+
+Perl実習終わり
+====
+
+* いつでも質問受け付けます
+* 興味があればPerl勉強会などもやりますよ
+    * Perl使う部署に配属してしまったのでしょうがなくとかでももちろんok
