@@ -2,8 +2,8 @@ use strict;
 use warnings;
 
 use Test::More;
-use Mixi::PerlTraning;
+use Mixi::PerlTraining;
 
-is Mixi::PerlTraning::hello(), 'Hello, Perl world.', 'call class method';
+is( Mixi::PerlTraining::hello(), 'Hello, Perl world.', 'call class method');
 
 done_testing;

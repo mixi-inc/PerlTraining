@@ -2,9 +2,9 @@ use strict;
 use warnings;
 
 use Test::More;
-use Mixi::PerlTraning;
+use Mixi::PerlTraining;
 
-my $perl_traning = Mixi::PerlTraning->new;
-is $perl_traning->hello_oo, 'Hello, Perl oo world', 'hello_oo method ok';
+my $perl_training = Mixi::PerlTraining->new;
+is $perl_training->hello_oo, 'Hello, Perl oo world', 'hello_oo method ok';
 
 done_testing;

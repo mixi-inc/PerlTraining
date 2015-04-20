@@ -3,7 +3,7 @@ use warnings;
 
 use Test::More;
 
-use_ok 'Mixi::PerlTraning';
+use_ok 'Mixi::PerlTraining';
 
 done_testing;
 

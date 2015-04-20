@@ -1,4 +1,4 @@
-package Mixi::PerlTraning;
+package Mixi::PerlTraining;
 
 use strict;
 use warnings;
