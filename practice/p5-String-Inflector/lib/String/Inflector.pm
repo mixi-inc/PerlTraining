@@ -13,25 +13,9 @@ our @EXPORT_OK = qw(
 );
 
 sub camelize {
-    my ($string) = @_;
-
-    return unless defined $string;
-
-    $string =~ s/(^\w)/\u$1/g;
-    $string =~ s/_+(\w)/\u$1/g;
-
-    return $string;
 }
 
 sub underscore {
-    my ($string) = @_;
-
-    return unless defined $string;
-
-    $string =~ s/(^[[:upper:]])/\l$1/g;
-    $string =~ s/([[:lower:]])([[:upper:]])/$1_\l$2/g;
-
-    return $string;
 }
 
 

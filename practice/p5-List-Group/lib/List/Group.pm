@@ -9,17 +9,6 @@ use Exporter qw( import );
 our @EXPORT_OK = qw( group_by );
 
 sub group_by (&@) {
-    my ($code, @rest) = @_;
-    my %hash;
-
-    for (map { [ $code->($_), $_ ] } @rest) {
-        my ($key, $value) = @$_;
-
-        $hash{$key} //= []; 
-        push @{ $hash{$key} }, $value;
-    }
-
-    return %hash;
 }
 
 1;
