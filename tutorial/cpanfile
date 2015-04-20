@@ -2,6 +2,10 @@ requires 'PSGI';
 requires 'Plack';
 requires 'Plack::Builder';
 requires 'Plack::Middleware::DirIndex';
+requires 'Data::Section::Simple';
+requires 'Path::Class';
+requires 'Text::Markdown';
+requires 'Text::Xslate';
 
 on develop => sub {
     recommends 'Text::Markdown';
