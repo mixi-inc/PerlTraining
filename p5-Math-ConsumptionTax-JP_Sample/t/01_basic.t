@@ -18,7 +18,6 @@ subtest 'calculate' => sub{
             10 => 110
         }
     );
-=test
     is_deeply( Math::ConsumptionTax::JP::calculate(200) ,
         {
             0  => 200,
@@ -28,7 +27,6 @@ subtest 'calculate' => sub{
             10 => 220
         }
     );
-=cut
 };
 
 subtest 'included_calculate' => sub{
@@ -41,7 +39,6 @@ subtest 'included_calculate' => sub{
             10 => 110
         }
     );
-=test
     is_deeply( Math::ConsumptionTax::JP::included_calculate( 216, 8) ,
         {
             0  => 200,
@@ -60,7 +57,6 @@ subtest 'included_calculate' => sub{
             10 => 330
         }
     );
-=cut
 };
 
 done_testing;
