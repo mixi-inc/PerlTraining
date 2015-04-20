@@ -222,13 +222,15 @@ Perlのオブジェクト指向
 
 * ハッシュリファレンスなどの要素へのアクセス
 * メソッド呼び出し時のシュガーシンタックス
-    * だから第1引数にクラス名やオブジェクトを受け取る
+* だから第1引数にクラス名やオブジェクトを受け取る
+
 
         $hash_ref->{name};
         $array_ref->[0];
         $sub_ref->($params);
         my $module = new 'Some::Module';# Some::Module->new
         hello_oo $module; # $module->hello_oo
+
 
 課題3
 ----
@@ -355,33 +357,29 @@ cpanm のインストール
 
 * モジュールの管理ツール
 
-    # plenv 使っている場合
-    $ plenv install-cpanm
-    # 使ってない場合
-    $ curl -L https://cpanmin.us | perl - App::cpanminus
+        $ plenv install-cpanm
     
 carton のインストール
 ----
 
 * アプリケーションの依存モジュール管理ツール
 
-    $ cpanm Carton
+        $ cpanm Carton
 
 minilla のインストール
 ----
 
 * モジュールオーサリングツール
 
-    $ cpanm Minilla
-    # plenv を使っている場合はrehashする必要があるかも
-    $ plenv rehash
+        $ cpanm Minilla
+        $ plenv rehash
 
 モジュールのひな形作成
 ----
 
-    $ cd practice
-    $ minil new MyPSGIApp
-    $ cd MyPSGIApp
+        $ cd practice
+        $ minil new MyPSGIApp
+        $ cd MyPSGIApp
 
 * 中身見てみましょう
 * CPAN形式と呼ばれるモジュールのファイル構成です
@@ -393,7 +391,6 @@ cpanfile の記述
 * psgi アプリを作るのに必要なモジュールを記述
 
         requires 'Plack';
-        requires 'Plack::Builder';
 
 carton の実行
 ----
@@ -425,10 +422,9 @@ plackサーバの起動
 
 * -r はコードに変更があったときに自動で再起動する機能です
 * -p はport指定です（デフォルトは5000）
-    * port5000を使ってなければ指定の必要は無いです
+* port5000を使えれば指定の必要は無いです
 
-        $ carton exec plackup -r
-        # $ carton exec plackup -r -p 5001
+        $ carton exec plackup -r -p 5000
 
 起動したらアクセスしてみて下さい
 ----
@@ -459,8 +455,8 @@ plack middleware を使ってみる
 cpanfile に追記
 ----
 
-        require 'Plack::Builder'
-        require 'Plack::Middleware::Debug'
+        requires 'Plack::Builder';
+        requires 'Plack::Middleware::Debug';
 
 * 追記したら carton install してください
 
@@ -477,8 +473,8 @@ app.psgi を編集
             sub {
                 [
                     '200',
-                    [ 'Content-Type' => 'text/plain' ],
-                    ['Hello, Plack/PSGI world!']
+                    [ 'Content-Type' => 'text/html' ],
+                    ['<html><body>Hello, Plack/PSGI world!</body></html>']
                 ]
             }
         };
