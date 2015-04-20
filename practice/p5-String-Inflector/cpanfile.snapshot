@@ -1,0 +1,366 @@
+# carton snapshot format: version 1.0
+DISTRIBUTIONS
+  CPAN-Meta-2.140640
+    pathname: D/DA/DAGOLDEN/CPAN-Meta-2.140640.tar.gz
+    provides:
+      CPAN::Meta 2.140640
+      CPAN::Meta::Converter 2.140640
+      CPAN::Meta::Feature 2.140640
+      CPAN::Meta::History 2.140640
+      CPAN::Meta::Prereqs 2.140640
+      CPAN::Meta::Spec 2.140640
+      CPAN::Meta::Validator 2.140640
+    requirements:
+      CPAN::Meta::Requirements 2.121
+      CPAN::Meta::YAML 0.008
+      Carp 0
+      ExtUtils::MakeMaker 6.17
+      JSON::PP 2.27200
+      List::Util 1.33
+      Parse::CPAN::Meta 1.4414
+      Scalar::Util 0
+      strict 0
+      version 0.88
+      warnings 0
+  CPAN-Meta-Requirements-2.125
+    pathname: D/DA/DAGOLDEN/CPAN-Meta-Requirements-2.125.tar.gz
+    provides:
+      CPAN::Meta::Requirements 2.125
+    requirements:
+      Carp 0
+      ExtUtils::MakeMaker 6.17
+      Scalar::Util 0
+      strict 0
+      version 0.77
+      warnings 0
+  CPAN-Meta-YAML-0.012
+    pathname: D/DA/DAGOLDEN/CPAN-Meta-YAML-0.012.tar.gz
+    provides:
+      CPAN::Meta::YAML 0.012
+    requirements:
+      B 0
+      Carp 0
+      Exporter 0
+      ExtUtils::MakeMaker 6.17
+      Fcntl 0
+      Scalar::Util 0
+      strict 0
+      warnings 0
+  Data-OptList-0.109
+    pathname: R/RJ/RJBS/Data-OptList-0.109.tar.gz
+    provides:
+      Data::OptList 0.109
+    requirements:
+      ExtUtils::MakeMaker 6.30
+      List::Util 0
+      Params::Util 0
+      Sub::Install 0.921
+      strict 0
+      warnings 0
+  Data-Section-0.200006
+    pathname: R/RJ/RJBS/Data-Section-0.200006.tar.gz
+    provides:
+      Child undef
+      Data::Section 0.200006
+      End undef
+      Godfather undef
+      Grandchild undef
+      Header undef
+      I::Child undef
+      I::Grandchild undef
+      I::Parent undef
+      Latin1 undef
+      NoData undef
+      NoName undef
+      Parent undef
+      Relaxed undef
+      Unicode_nopragma undef
+      Unicode_pragma undef
+      WindowsNewlines undef
+    requirements:
+      Encode 0
+      ExtUtils::MakeMaker 6.30
+      MRO::Compat 0.09
+      Sub::Exporter 0.979
+      strict 0
+      warnings 0
+  ExtUtils-MakeMaker-6.90
+    pathname: B/BI/BINGOS/ExtUtils-MakeMaker-6.90.tar.gz
+    provides:
+      DynaLoader 6.90
+      ExtUtils::Command::MM 6.90
+      ExtUtils::Liblist 6.90
+      ExtUtils::Liblist::Kid 6.90
+      ExtUtils::MM 6.90
+      ExtUtils::MM_AIX 6.90
+      ExtUtils::MM_Any 6.90
+      ExtUtils::MM_BeOS 6.90
+      ExtUtils::MM_Cygwin 6.90
+      ExtUtils::MM_DOS 6.90
+      ExtUtils::MM_Darwin 6.90
+      ExtUtils::MM_MacOS 6.90
+      ExtUtils::MM_NW5 6.90
+      ExtUtils::MM_OS2 6.90
+      ExtUtils::MM_QNX 6.90
+      ExtUtils::MM_UWIN 6.90
+      ExtUtils::MM_Unix 6.90
+      ExtUtils::MM_VMS 6.90
+      ExtUtils::MM_VOS 6.90
+      ExtUtils::MM_Win32 6.90
+      ExtUtils::MM_Win95 6.90
+      ExtUtils::MY 6.90
+      ExtUtils::MakeMaker 6.90
+      ExtUtils::MakeMaker::Config 6.90
+      ExtUtils::MakeMaker::_version 6.90
+      ExtUtils::Mkbootstrap 6.90
+      ExtUtils::Mksymlists 6.90
+      ExtUtils::testlib 6.90
+      MM 6.90
+      MY 6.90
+      in 6.90
+    requirements:
+      Data::Dumper 0
+      DirHandle 0
+      File::Basename 0
+      File::Spec 0.8
+      Pod::Man 0
+      perl 5.006
+  JSON-PP-2.27203
+    pathname: M/MA/MAKAMAKA/JSON-PP-2.27203.tar.gz
+    provides:
+      JSON::PP 2.27203
+      JSON::PP::Boolean 2.27203
+      JSON::PP::IncrParser 2.27203
+    requirements:
+      ExtUtils::MakeMaker 0
+      Test::More 0
+  MRO-Compat-0.12
+    pathname: B/BO/BOBTFISH/MRO-Compat-0.12.tar.gz
+    provides:
+      MRO::Compat 0.12
+    requirements:
+      ExtUtils::MakeMaker 6.59
+      Test::More 0.47
+      perl 5.006
+  Module-Build-0.4205
+    pathname: L/LE/LEONT/Module-Build-0.4205.tar.gz
+    provides:
+      Module::Build 0.4205
+      Module::Build::Base 0.4205
+      Module::Build::Compat 0.4205
+      Module::Build::Config 0.4205
+      Module::Build::Cookbook 0.4205
+      Module::Build::Dumper 0.4205
+      Module::Build::ModuleInfo 0.4205
+      Module::Build::Notes 0.4205
+      Module::Build::PPMMaker 0.4205
+      Module::Build::Platform::Default 0.4205
+      Module::Build::Platform::MacOS 0.4205
+      Module::Build::Platform::Unix 0.4205
+      Module::Build::Platform::VMS 0.4205
+      Module::Build::Platform::VOS 0.4205
+      Module::Build::Platform::Windows 0.4205
+      Module::Build::Platform::aix 0.4205
+      Module::Build::Platform::cygwin 0.4205
+      Module::Build::Platform::darwin 0.4205
+      Module::Build::Platform::os2 0.4205
+      Module::Build::PodParser 0.4205
+      Module::Build::Version 0.87
+      Module::Build::YAML 1.41
+      inc::latest 0.4205
+      inc::latest::private 0.4205
+    requirements:
+      CPAN::Meta 2.110420
+      CPAN::Meta::YAML 0.003
+      Cwd 0
+      Data::Dumper 0
+      ExtUtils::CBuilder 0.27
+      ExtUtils::Install 0
+      ExtUtils::Manifest 0
+      ExtUtils::Mkbootstrap 0
+      ExtUtils::ParseXS 2.21
+      File::Basename 0
+      File::Compare 0
+      File::Copy 0
+      File::Find 0
+      File::Path 0
+      File::Spec 0.82
+      File::Temp 0.15
+      Getopt::Long 0
+      Module::Metadata 1.000002
+      Parse::CPAN::Meta 1.4401
+      Perl::OSType 1
+      Pod::Man 2.17
+      Test::Harness 3.16
+      Test::More 0.49
+      Text::Abbrev 0
+      Text::ParseWords 0
+      perl 5.006001
+      version 0.87
+  Module-Metadata-1.000019
+    pathname: E/ET/ETHER/Module-Metadata-1.000019.tar.gz
+    provides:
+      Module::Metadata 1.000019
+    requirements:
+      Carp 0
+      ExtUtils::MakeMaker 0
+      File::Find 0
+      File::Spec 0
+      IO::File 0
+      perl 5.006
+      strict 0
+      vars 0
+      version 0.87
+      warnings 0
+  Params-Util-1.07
+    pathname: A/AD/ADAMK/Params-Util-1.07.tar.gz
+    provides:
+      Params::Util 1.07
+    requirements:
+      ExtUtils::CBuilder 0.27
+      ExtUtils::MakeMaker 6.52
+      File::Spec 0.80
+      Scalar::Util 1.18
+      Test::More 0.42
+      perl 5.00503
+  Parse-CPAN-Meta-1.4414
+    pathname: D/DA/DAGOLDEN/Parse-CPAN-Meta-1.4414.tar.gz
+    provides:
+      Parse::CPAN::Meta 1.4414
+    requirements:
+      CPAN::Meta::YAML 0.011
+      Carp 0
+      Encode 0
+      Exporter 0
+      ExtUtils::MakeMaker 6.30
+      File::Spec 0.80
+      JSON::PP 2.27200
+      strict 0
+  Perl-OSType-1.007
+    pathname: D/DA/DAGOLDEN/Perl-OSType-1.007.tar.gz
+    provides:
+      Perl::OSType 1.007
+    requirements:
+      Exporter 0
+      ExtUtils::MakeMaker 6.17
+      strict 0
+      warnings 0
+  Scalar-List-Utils-1.38
+    pathname: P/PE/PEVANS/Scalar-List-Utils-1.38.tar.gz
+    provides:
+      List::Util 1.38
+      List::Util::XS 1.38
+      Scalar::Util 1.38
+    requirements:
+      ExtUtils::MakeMaker 0
+      Test::More 0
+  Software-License-0.103009
+    pathname: R/RJ/RJBS/Software-License-0.103009.tar.gz
+    provides:
+      Software::License 0.103009
+      Software::License::AGPL_3 0.103009
+      Software::License::Apache_1_1 0.103009
+      Software::License::Apache_2_0 0.103009
+      Software::License::Artistic_1_0 0.103009
+      Software::License::Artistic_2_0 0.103009
+      Software::License::BSD 0.103009
+      Software::License::CC0_1_0 0.103009
+      Software::License::Custom 0.103009
+      Software::License::FreeBSD 0.103009
+      Software::License::GFDL_1_2 0.103009
+      Software::License::GFDL_1_3 0.103009
+      Software::License::GPL_1 0.103009
+      Software::License::GPL_2 0.103009
+      Software::License::GPL_3 0.103009
+      Software::License::LGPL_2_1 0.103009
+      Software::License::LGPL_3_0 0.103009
+      Software::License::MIT 0.103009
+      Software::License::Mozilla_1_0 0.103009
+      Software::License::Mozilla_1_1 0.103009
+      Software::License::Mozilla_2_0 0.103009
+      Software::License::None 0.103009
+      Software::License::OpenSSL 0.103009
+      Software::License::Perl_5 0.103009
+      Software::License::PostgreSQL 0.103009
+      Software::License::QPL_1_0 0.103009
+      Software::License::SSLeay 0.103009
+      Software::License::Sun 0.103009
+      Software::License::Zlib 0.103009
+      Software::LicenseUtils 0.103009
+    requirements:
+      Carp 0
+      Data::Section 0
+      ExtUtils::MakeMaker 6.30
+      File::Spec 0
+      IO::Dir 0
+      Module::Load 0
+      Sub::Install 0
+      Text::Template 0
+      parent 0
+      strict 0
+      warnings 0
+  Sub-Exporter-0.987
+    pathname: R/RJ/RJBS/Sub-Exporter-0.987.tar.gz
+    provides:
+      Sub::Exporter 0.987
+      Sub::Exporter::Util 0.987
+      Test::SubExporter::DashSetup undef
+      Test::SubExporter::Faux undef
+      Test::SubExporter::GroupGen undef
+      Test::SubExporter::GroupGenSubclass undef
+      Test::SubExporter::ObjGen undef
+      Test::SubExporter::ObjGen::Obj undef
+      Test::SubExporter::s_e undef
+    requirements:
+      Carp 0
+      Data::OptList 0.100
+      ExtUtils::MakeMaker 6.30
+      Params::Util 0.14
+      Sub::Install 0.92
+      strict 0
+      warnings 0
+  Sub-Install-0.927
+    pathname: R/RJ/RJBS/Sub-Install-0.927.tar.gz
+    provides:
+      Sub::Install 0.927
+    requirements:
+      B 0
+      Carp 0
+      ExtUtils::MakeMaker 6.30
+      Scalar::Util 0
+      strict 0
+      warnings 0
+  Test-Simple-1.001002
+    pathname: R/RJ/RJBS/Test-Simple-1.001002.tar.gz
+    provides:
+      Test::Builder 1.001002
+      Test::Builder::IO::Scalar 2.110
+      Test::Builder::Module 1.001002
+      Test::More 1.001002
+      Test::Simple 1.001002
+    requirements:
+      ExtUtils::MakeMaker 0
+      Scalar::Util 1.13
+      Test::Harness 2.03
+      perl 5.006
+  Text-Template-1.46
+    pathname: M/MJ/MJD/Text-Template-1.46.tar.gz
+    provides:
+      Text::Template 1.46
+      Text::Template::Preprocess 1.46
+    requirements:
+      ExtUtils::MakeMaker 0
+  version-0.9908
+    pathname: J/JP/JPEACOCK/version-0.9908.tar.gz
+    provides:
+      charstar 0.9908
+      version 0.9908
+      version::regex 0.9908
+      version::vpp 0.9908
+      version::vxs 0.9908
+    requirements:
+      ExtUtils::MakeMaker 6.17
+      File::Temp 0.13
+      Test::More 0.45
+      parent 0.221
+      perl 5.006002
